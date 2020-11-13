@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>[Bài tập] Sinh bảng cửu chương</title>
+</head>
+<body>
+      <table style="border-collapse:collapse;">
+            <caption style="font-weight: bold;font-size:1.5rem;"><strong>BẢNG CỬU CHƯƠNG</strong></caption>
+            <tbody>
+                  <tr id="two"></tr>
+                  <tr id="three"></tr>
+                  <tr id="four"></tr>
+                  <tr id="five"></tr>
+                  <tr id="six"></tr>
+                  <tr id="seven"></tr>
+                  <tr id="eight"></tr>
+                  <tr id="nine"></tr>
+            </tbody>
+      </table>
+      <script>
+            idRowMultiplicationTables = ["two", "three", "four", "five", "six", "seven", "eight", "nine"];
+            for ( let count = 2; count < 10; count++) {
+                  for (let count1 = 1; count1 <= 10; count1++) {
+                        document.getElementById(idRowMultiplicationTables[count-2]).innerHTML += `<td style="width: 80px;border: 2px solid black;padding: 5px 10px;">${count} x ${count1} = ${count*count1}</td>`;
+                  }
+            }
+      </script>
+</body>
+</html>
