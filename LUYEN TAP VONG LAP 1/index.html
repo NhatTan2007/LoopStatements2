@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>[*Bài tập] Luyện tập vòng lặp 01</title>
+</head>
+<body>
+      <!-- Bài 1 -->
+
+      <!-- <script>
+            for (let count = 1; count < 101; count++) {
+                  if (count !== 99) {
+                        console.log(count);
+                  } else {
+                        console.log("Đã hoàn thành");
+                  }
+            }
+      </script> -->
+
+      <!-- Bài 2 -->
+
+      <!-- <script>
+            let roomTemperature = parseInt(prompt("Nhập vào nhiệt độ hiện tại của phòng"));
+            if (roomTemperature > 100) {
+                  alert("Nhiệt độ quá cao, hãy giảm nhiệt độ!");
+            } else if (roomTemperature < 20) {
+                  alert("Nhiệt độ quá thấp, hãy tăng nhiệt độ");
+            } else {
+                  alert ("Nhiệt độ đạt ngưỡng bình thường");
+            }
+      </script> -->
+
+      <!-- Bài 3 -->
+      
+      <!-- <script>
+            console.log(getFiboArray());
+
+            function getFiboArray() {
+                  let fiboArray = [];
+                  for (let count = 0; count < 20; count++) {
+                        if (count === 0) {
+                              fiboArray.push(0);
+                        } else if (count === 1) {
+                              fiboArray.push(1);
+                        } else {
+                              fiboArray.push(fiboArray[count - 1] + fiboArray [count - 2]);
+                        }
+                  }
+                  return fiboArray;
+            }
+      </script> -->
+
+      <!-- Bài 4 -->
+
+      <!-- <script>
+            findFristFiboNumbersDivisible5();
+
+            function findFristFiboNumbersDivisible5() {
+                  let fiboArray = [0,1];
+                  let isFiboNumberDivisible5 = false;
+                  while(!isFiboNumberDivisible5) {
+                        let lastFiboNumberAdd = fiboArray[fiboArray.length - 1] + fiboArray[fiboArray.length - 2];
+                        if (lastFiboNumberAdd % 5 !=0) {
+                              fiboArray.push(lastFiboNumberAdd);
+                        } else {
+                              isFiboNumberDivisible5 = true;
+                              console.log(lastFiboNumberAdd);
+                        }
+                  }
+            }
+      </script> -->
+      
+      <!-- Bài 5 -->
+
+      <!-- <script>
+            console.log(getFiboArray(20));
+            console.log(`Tổng 20 số Fibonacci đầu tiên ${sumFiboNumbers()}`);
+
+            function sumFiboNumbers() {
+                  let sumFiboNumbers = 0;
+                  for (let count = 0; count < getFiboArray(20).length; count++)  {
+                        sumFiboNumbers += getFiboArray(20)[count];
+                  }
+                  return sumFiboNumbers;
+            }
+
+            function getFiboArray(amountOfNumbers) {
+                  let fiboArray = [];
+                  for (let count = 0; count < amountOfNumbers; count++) {
+                        if (count === 0) {
+                              fiboArray.push(0);
+                        } else if (count === 1) {
+                              fiboArray.push(1);
+                        } else {
+                              let lastFiboNumberAdd = fiboArray[count - 1] + fiboArray [count - 2];
+                              fiboArray.push(lastFiboNumberAdd);
+                        }
+                  }
+                  return fiboArray;
+            }
+      </script> -->
+
+      <!-- Bài 6 -->
+
+      <!-- <script>
+            sumFrist30NumbersDivisible7();
+
+            function sumFrist30NumbersDivisible7() {
+                  let sumNumbersDivisible7 = 0;
+                  let amountNumberDivisible7 = 0;
+                  let numberDivisibleArray = [];
+                  for (let count = 1; amountNumberDivisible7 < 30; count ++) {
+                        if (count % 7 === 0) {
+                              amountNumberDivisible7++;
+                              sumNumbersDivisible7 += count;
+                              numberDivisibleArray.push(count);
+                        };
+                  }
+                  console.log(numberDivisibleArray);
+                  console.log(`Tổng 30 số đầu tiên chia hết cho 7 ${sumNumbersDivisible7}`);
+            }
+      </script> -->
+
+      <!-- Bài 7 -->
+
+      <!-- <script>
+            for (let count = 1; count <= 100; count++) {
+                  if (count % 15 === 0) {
+                        document.write("FizzBuzz, ");
+                  } else if (count % 3 === 0) {
+                        document.write("Fizz, ");
+                  } else if (count % 5 === 0) {
+                        document.write("Buzz, ");
+                  } else {
+                        document.write(`${count}, `);
+                  }
+            }
+      </script> -->
+
+      <!-- Bài 8 -->
+      <button id="btnPlay">Chơi</button>
+      <script>
+            document.getElementById("btnPlay").addEventListener("click",guessNumber);
+            
+            function guessNumber() {
+                  let minNumber = parseInt(prompt("Nhập vào số bé nhất khoảng số"));
+                  let maxNumber = parseInt(prompt("Nhập vào số lớn nhất khoảng số"));
+                  let guessNumber;
+                  do {
+                        guessNumber = parseInt(prompt(`Nhập vào số bạn đoán, số bạn nhập phải nằm trong khoảng ${minNumber} và ${maxNumber}`));
+                  } while (guessNumber < minNumber || guessNumber > maxNumber);
+                  let randomNumber = Math.round(Math.random()*(maxNumber - minNumber + 1) + minNumber);
+                  let timeWrong = 0;
+                  while (guessNumber !== randomNumber) {
+                        timeWrong++;
+                        if (timeWrong >= 3) {
+                              alert("Bạn đã thua rồi");
+                              break;
+                        }
+                        if (guessNumber < randomNumber) {
+                              alert("Bạn đoán lại nhé, gợi ý số của bạn đoán nhỏ hơn");
+                        } else {
+                              alert("Bạn đoán lại nhé, gợi ý số của bạn đoán lớn hơn");
+                        }
+                        guessNumber = parseInt(prompt(`Nhập vào số bạn đoán, số bạn nhập phải nằm trong khoảng ${minNumber} và ${maxNumber}`));
+                        while (guessNumber < minNumber || guessNumber > maxNumber) {
+                              guessNumber = parseInt(prompt(`Nhập vào số bạn đoán, số bạn nhập phải nằm trong khoảng ${minNumber} và ${maxNumber}`));
+                        }
+
+                  }
+                        if (timeWrong < 3) {
+                              alert("Chúc mừng bạn đoán đúng rồi");
+                        }
+            }
+      </script>
+</body>
+</html>

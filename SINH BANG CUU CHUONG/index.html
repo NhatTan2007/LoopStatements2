@@ -21,11 +21,57 @@
       </table>
       <script>
             idRowMultiplicationTables = ["two", "three", "four", "five", "six", "seven", "eight", "nine"];
-            for ( let count = 2; count < 10; count++) {
-                  for (let count1 = 1; count1 <= 10; count1++) {
-                        document.getElementById(idRowMultiplicationTables[count-2]).innerHTML += `<td style="width: 80px;border: 2px solid black;padding: 5px 10px;">${count} x ${count1} = ${count*count1}</td>`;
+            // for ( let count = 2; count < 10; count++) {
+            //       for (let count1 = 1; count1 <= 10; count1++) {
+            //             document.getElementById(idRowMultiplicationTables[count-2]).innerHTML += `<td style="width: 80px;border: 2px solid black;padding: 5px 10px;">${count} x ${count1} = ${count*count1}</td>`;
+            //       }
+            // }
+
+            // let count = 2;
+            // while (count < 10) {
+            //       let count1 = 1;
+            //       while (count1 <= 10) {
+            //             document.getElementById(idRowMultiplicationTables[count-2]).innerHTML += `<td style="width: 80px;border: 2px solid black;padding: 5px 10px;">${count} x ${count1} = ${count*count1}</td>`;
+            //             count1++;
+            //       }
+            //       count++;
+            // }
+
+            // let count = 2;
+            // do {
+            //       let count1 = 1;
+            //       do {
+            //             document.getElementById(idRowMultiplicationTables[count-2]).innerHTML += `<td style="width: 80px;border: 2px solid black;padding: 5px 10px;">${count} x ${count1} = ${count*count1}</td>`;
+            //             count1++;
+            //       } while (count1 <= 10);
+            //       count++;
+            // } while (count < 10);
+
+            // for (let currentNumber = 2; currentNumber <= 100; currentNumber++) {
+            //       let checkPrimes = true;
+            //       for (let count = 2; count <= Math.floor(Math.sqrt(currentNumber)); count++ ) {
+            //             if (currentNumber % count == 0) {
+            //                   checkPrimes = false;
+            //                   break;
+            //             }
+            //       }
+            //       if (checkPrimes) {
+            //                   document.write(`${currentNumber}, `);
+            //       }
+            // }
+
+            for (let currentNumber = 1; currentNumber <= 100; currentNumber++) {
+                  let sum = 0;
+                  for (let count = 1; count < currentNumber; count++ ) {
+                        if (currentNumber % count === 0) {
+                              sum += count;
+                        }
+                  }
+                  if (sum === currentNumber) {
+                        document.write(`${currentNumber}, `);
                   }
             }
+
       </script>
 </body>
 </html>
