@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>[Bài tập] Hiển thị các số nguyên tố đầu tiên</title>
+</head>
+
+<body>
+      <script>
+            let numberOfPrimes = parseInt(prompt("Nhập vào số lượng nguyên tố muốn hiển thị"));
+            let currenNumber = 2;
+            while (numberOfPrimes <= 0) {
+                  numberOfPrimes = parseInt(prompt("Nhập vào số lượng nguyên tố muốn hiển thị"));
+            };
+
+            while (numberOfPrimes !== 0) {
+                  if (checkPrimes(currenNumber)) {
+                        document.write(`${currenNumber}</br>`);
+                        currenNumber++;
+                        numberOfPrimes--;
+                  } else {
+                        currenNumber++;
+                  }
+                  
+            }
+            
+            function checkPrimes (number) {
+                  let maxNumberTo = Math.floor(Math.sqrt(number));
+                  if (maxNumberTo < 2) {
+                        return true
+                  }
+                  for (let count = 2; count <= maxNumberTo; count++) {
+                        if (number % count == 0) {
+                              return false;
+                              break;
+                        } else if (count == maxNumberTo) {
+                              return true;
+                        };
+                  };
+            }
+      </script>
+</body>
+
+</html>
