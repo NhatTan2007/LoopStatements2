@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Bài 6</title>
+</head>
+<body>
+      <div id="triangleAbove1" style="text-align: center;display: inline-block;">
+
+      </div>
+      <div id="triangleAbove2" style="text-align: center;display: inline-block;">
+
+      </div>
+      <br>
+      <div id="arrayTriangleBelow" style="text-align: center;display:inline-block">
+
+      </div>
+
+      <script>
+            let symbolPrint = "*";
+            let sizeOfHeart;
+            do {
+                  sizeOfHeart = +prompt("Nhập vào kích thước của hình trái tim (tối thiểu 10 cho đẹp nha)");
+            } while (isNaN(sizeOfHeart) || sizeOfHeart < 10);
+            //Do trái tim là được tạo bởi 2 tam giác nhỏ chiều thuận kết hợp với 1 tam giác lớn chiều ngược, vì vậy em khai báo 2 array để vẽ 3 tam giác.
+            let arrayTriangleAbove = [];
+            let arrayTriangleBelow = [];
+
+            function CreateTriangleArray() {
+                  for (let i = 0; i < sizeOfHeart/2; i++) {
+                        arrayTriangleAbove[i] = [];
+                        for (let j = 0; j <= i; j++) {
+                              if (i < 4) {
+                                    arrayTriangleAbove[i].push("&nbsp;&nbsp;&nbsp;");
+                              } else {
+                                    arrayTriangleAbove[i].push(`&nbsp;&nbsp;${symbolPrint}&nbsp;&nbsp;`);
+                              }
+                        }
+                  }
+                  
+                  for (let i = 0; i < sizeOfHeart - 1; i++) {
+                        arrayTriangleBelow[i] = [];
+                        for (let j = 0; j < sizeOfHeart - i; j++) {
+                              if (i < sizeOfHeart - 5) {
+                                    arrayTriangleBelow[i].push(`&nbsp;&nbsp;${symbolPrint}&nbsp;&nbsp;`);
+                              } else {
+                                    arrayTriangleBelow[i].push("&nbsp;&nbsp;&nbsp;");
+                              }
+                        }
+                  }
+            }
+
+            function DrawTriangle(idElements,array) {
+                  let getTriangle = document.getElementById(idElements);
+                  for (let value of array) {
+                        for (let i = 0; i < value.length; i++) {
+                              getTriangle.innerHTML += value[i];
+                        }
+                        getTriangle.innerHTML += "<br>";
+                  }
+            }
+            CreateTriangleArray();
+            DrawTriangle("triangleAbove1",arrayTriangleAbove);
+            DrawTriangle("triangleAbove2",arrayTriangleAbove);
+            DrawTriangle("arrayTriangleBelow",arrayTriangleBelow);
+            
+      </script>
+</body>
+</html>

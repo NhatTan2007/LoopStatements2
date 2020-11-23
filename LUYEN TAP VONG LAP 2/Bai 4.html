@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Bài 4</title>
+</head>
+<body onload="MainProgram()">
+      <script>
+            function CreateRectangleArray(height,width) {
+                  let rectangleArray = [];
+                  for (let i = 0; i < height; i++) {
+                        rectangleArray[i] = [];
+                        for (let j = 0; j < width; j++) {
+                              rectangleArray[i][j] = "*";
+                        }
+                  }
+                  console.log(rectangleArray);
+                  return rectangleArray;
+            }
+
+            function EditRectangleArray(array) {
+                  console.log(array[1].length);
+                  for (let i = 1; i < array.length - 1; i++) {
+                        for (let j = 1; j < array[i].length - 1; j++) {
+                              array[i][j] = "&nbsp;";
+                        }
+                  }
+                  return array;
+            }
+            
+            function MainProgram() {
+                  let widthRectangle;
+                  let heightRectangle;
+                  do {
+                        widthRectangle = +prompt("Nhập vào độ dài của hình chữ nhật");
+                  } while (isNaN(widthRectangle) && widthRectangle <= 0);
+
+                  do {
+                        heightRectangle = +prompt("Nhập vào chiều rộng của hình chữ nhật");
+                  } while (isNaN(heightRectangle) && heightRectangle <= 0);
+
+                  let rectangleArray = EditRectangleArray(CreateRectangleArray(heightRectangle,widthRectangle));
+                  document.write("<table><tbody>");
+                  for (let i = 0; i < heightRectangle; i++) {
+                        document.write("<tr>");
+                        for (let j = 0; j < widthRectangle; j++) {
+                              document.write(`<td>${rectangleArray[i][j]}</td>`);
+                        }
+                        document.write("</tr>");
+                  }
+                  document.write("</tbody></table>");
+            }
+      </script>
+</body>
+</html>

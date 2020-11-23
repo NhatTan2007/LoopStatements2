@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Bài 3</title>
+</head>
+<body>
+      <div id="drawTriangle" style="display:inline-block"></div>
+      <br>
+            <label for="symbolForWriteTriangle">Ký tự để vẽ hình tam giác</label>
+            <input type="text" name="symbolForWriteTriangle" id="symbolForWriteTriangle" required>
+            <br>
+            <label for="sizeOfTriangle">Kích cỡ tam giác bằng các ký tự</label>
+            <input type="number" name="sizeOfTriangle" id="sizeOfTriangle" min="1" style="width:30px;text-align:center;" required>
+            <br>
+            <label for="">Chiều vẽ hình tam giác</label>
+            <input type="radio" name="direction" id="forwardDirection">
+            <label for="forwardDirection">Chiều thuận</label>
+            <input type="radio" name="direction" id="reversedDirection">
+            <label for="reversedDirection">Chiều đảo ngược</label>
+            <br>
+            <label for="">Số ký tự vẽ hình</label>
+            <input type="radio" name="symbolIncreaseOrDecrease" id="increaseSymbol">
+            <label for="symbolIncreaseOrDecrease">Tăng dần</label>
+            <input type="radio" name="symbolIncreaseOrDecrease" id="decreaseSymbol">
+            <label for="symbolIncreaseOrDecrease">Giảm dần</label>
+            <br>
+            <button onclick="mainProgram()">Vẽ hình tam giác</button>
+      <script>
+            let placeDrawTriangle = document.getElementById("drawTriangle");
+
+            function CreateTriangleArray(symbol,size,increaseOrDecrease) {
+                  let triangleArray = [];
+                  for (let i = 0; i < size; i++) {
+                        triangleArray[i] = [];
+                  }
+
+                  if (increaseOrDecrease === "increase") {
+                        for (let i = 0; i < size; i++) {
+                              for (let j = 0; j <= i; j++) {
+                                    triangleArray[i][j] = symbol;
+                              }
+                        }
+                  }
+
+                  if (increaseOrDecrease === "decrease") {
+                        for (let i = 0; i < size; i++) {
+                              for (let j = 0; j < size - i; j++) {
+                                    triangleArray[i][j] = symbol;
+                              }
+                        }
+                  }
+                  
+                  return triangleArray;
+            }
+
+            function DrawTriangle(direction,array) {
+                  if (direction === "reversed") {
+                        placeDrawTriangle.style.textAlign = "right";
+                  } else if (direction === "forward") {
+                        placeDrawTriangle.style.textAlign = "left";
+                  }
+                  for (let i = 0; i < array.length; i++) {
+                        for (let value of array[i]) {
+                              placeDrawTriangle.innerHTML += value;
+                        }
+                        placeDrawTriangle.innerHTML += "<br>";
+                  }
+            }
+
+            function mainProgram() {
+                  placeDrawTriangle.innerHTML = "";
+                  let symbolForWriteTriangle = document.getElementById("symbolForWriteTriangle").value;
+                  let sizeOfTriangle = document.getElementById("sizeOfTriangle").value;
+                  let directionOfTriangle;
+                  let triangleArrayToDraw;
+
+                  if (document.getElementById("forwardDirection").checked) {
+                        directionOfTriangle = "forward";
+                  } else if (document.getElementById("reversedDirection").checked) {
+                        directionOfTriangle = "reversed";
+                  } else {
+                        return alert("Bạn phải chọn chiều vẽ hình tam giác");
+                  }
+
+                  if (document.getElementById("increaseSymbol").checked) {
+                        symbolIncreaseOrDecrease = "increase";
+                  } else if (document.getElementById("decreaseSymbol").checked) {
+                        symbolIncreaseOrDecrease = "decrease";
+                  } else {
+                         return alert("Bạn phải chọn tăng dần hay giảm dần số lượng tam giác");
+                  }
+                  triangleArrayToDraw = CreateTriangleArray(symbolForWriteTriangle,sizeOfTriangle,symbolIncreaseOrDecrease)
+                  DrawTriangle(directionOfTriangle,triangleArrayToDraw);
+            }
+      </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Bài 1</title>
+</head>
+<body>
+      <script>
+            let fibonacciNumbersArray = [0,1];
+            let sizeOfFibonacciNumbersArray;
+            do {
+                  sizeOfFibonacciNumbersArray = +prompt("Nhập số lượng các số Fibonacci muốn in (phải lớn hơn 2):");
+            } while (isNaN(sizeOfFibonacciNumbersArray) || sizeOfFibonacciNumbersArray < 3);
+
+            for (let i = 2; i < sizeOfFibonacciNumbersArray; i++) {
+                  fibonacciNumbersArray.push(fibonacciNumbersArray[i - 1] + fibonacciNumbersArray[i - 2]);
+            }
+
+            document.write(`Dãy số Fibonacci với số lượng phần tử ${sizeOfFibonacciNumbersArray} là: ${fibonacciNumbersArray.join(", ")}`);
+      </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Bài 5</title>
+</head>
+<body>
+      <script>
+            let amountOfMoneyForLend;
+            let monthsForLend;
+            let interestRateForLendPerMonth;
+            let interestTotal;
+            do {
+                  amountOfMoneyForLend = +prompt("Nhập vào số tiền cho vay:");
+            } while (isNaN(amountOfMoneyForLend) || amountOfMoneyForLend <= 0);
+            do {
+                  monthsForLend = +prompt("Nhập vào số tháng cho vay:");
+            } while (isNaN(monthsForLend) || monthsForLend <= 0);
+            do {
+                  interestRateForLendPerMonth = parseFloat(prompt("Nhập vào lãi hàng tháng:"));
+            } while (isNaN(interestRateForLendPerMonth) || interestRateForLendPerMonth <= 0);
+
+            interestTotal = amountOfMoneyForLend*Math.pow((1 + interestRateForLendPerMonth/100),monthsForLend) - amountOfMoneyForLend;
+            document.write(`Tổng tiền lãi phải trả khi vay ${amountOfMoneyForLend} với lãi suất ${interestRateForLendPerMonth}%/tháng trong ${monthsForLend} tháng là: ${interestTotal.toFixed(0)}`)
+      </script>
+</body>
+</html>
